@@ -16,6 +16,7 @@ module.exports = function (req, res) {
     var throughput = req.body.throughput;
 
     firebase.database().ref(airportName+'/'+carrierName+'/'+counterNumber).set({
+        counterNumber:counterNumber,
         counterCount:counterCount,
         throughput:throughput
     })
