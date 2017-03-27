@@ -22,10 +22,10 @@ module.exports = function (req, res) {
     // const dbrefObj= firebase.database().ref("/"+airportName+"/")
     // dbrefObj.once('value', snap=>console.log(snap.val()))
 
-    firebase.database().ref("/"+airportName+'/'+carrierName).once('value').then(function(snapshot) {
-        res.json(snapshot.val());
-    });
+    // firebase.database().ref("/"+airportName+'/'+carrierName).once('value').then(function(snapshot) {
+    //     res.json(snapshot.val());
+    // });
     // res.json()
-    // res.status(200)
-    // res.send('Updated')
+    res.status(200)
+    res.send('Updated')
 };
