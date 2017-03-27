@@ -3,7 +3,7 @@ var firebase = require('firebase')
 var logger = require('morgan')
 var bodyParser  =require('body-parser')
 var cookieParser = require('cookie-parser');
-
+var api = require('./api');
 
 var app = express()
 
@@ -23,6 +23,8 @@ var port =process.env.PORT || 3000;
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
 });
+
+app.use('/api', api);
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/homePage.html')
