@@ -22,7 +22,7 @@ module.exports = function (req, res) {
     // const dbrefObj= firebase.database().ref("/"+airportName+"/")
     // dbrefObj.once('value', snap=>console.log(snap.val()))
 
-    firebase.database().ref("/"+airportName).once('value').then(function(snapshot) {
+    firebase.database().ref("/"+airportName+'/'+carrierName).once('value').then(function(snapshot) {
         res.json(snapshot.val());
     });
     // res.json()
