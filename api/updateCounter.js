@@ -14,16 +14,18 @@ module.exports = function (req, res) {
     var counterNumber = req.body.counterNumber;
     var counterCount = req.body.counterCount;
     var throughput = req.body.throughput;
+    var avgWaitingTime = req.body.avgWaitingTime;
 
-    firebase.database().ref(airportName+'/'+carrierName+'/'+counterNumber).set({
+    firebase.database().ref(airportName+'/'+carrierName+'/carrier/'+counterNumber).set({
         counterNumber:counterNumber,
         counterCount:counterCount,
-        throughput:throughput
+        throughput:throughput,
+        avgWaitingTime:avgWaitingTime
     })
-    const dbrefObj= firebase.database().ref("/"+airportName+"/")
-    dbrefObj.once('value', snap=>console.log(snap.val()))
+    // const dbrefObj= firebase.database().ref("/"+airportName+"/")
+    // dbrefObj.once('value', snap=>console.log(snap.val()))
 
-    firebase.database().ref("/"+airportName+'/'+carrierName).once('value').then(function(snapshot) {
+    firebase.database().ref("/"+airportName+'/'+carrierName+'/carrier').once('value').then(function(snapshot) {
         res.json(snapshot.val());
     });
     // res.json()
